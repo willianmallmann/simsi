@@ -54,6 +54,7 @@ const RITUALS = {
       extended: 'Dica extra: combine com Desacelerar a Mente para criar uma transição completa do modo ativo para o repouso.',
     },
     ctaLabel: 'Conhecer produtos para Redução de Estímulo',
+    ctaUrl:   'https://shop.simsi.com.br/collections/reducao-de-estimulo',
   },
   'desacelerar-mente': {
     name: 'Desacelerar a Mente',
@@ -66,6 +67,7 @@ const RITUALS = {
       extended: 'Dica extra: pratique junto com Redução de Estímulo para potencializar a qualidade do sono.',
     },
     ctaLabel: 'Conhecer produtos para Desacelerar a Mente',
+    ctaUrl:   'https://shop.simsi.com.br/collections/desacelerar-a-mente',
   },
   'banho-relaxante': {
     name: 'Banho Relaxante',
@@ -78,6 +80,7 @@ const RITUALS = {
       extended: 'Dica extra: adicione Recovery Muscular após o banho para maximizar o relaxamento físico.',
     },
     ctaLabel: 'Conhecer produtos para Banho Relaxante',
+    ctaUrl:   'https://shop.simsi.com.br/collections/banho-relaxante',
   },
   'relaxamento-muscular': {
     name: 'Relaxamento Muscular',
@@ -90,6 +93,7 @@ const RITUALS = {
       extended: 'Dica extra: combine com Banho Relaxante para uma sessão completa de recovery no final do dia.',
     },
     ctaLabel: 'Conhecer produtos para Relaxamento Muscular',
+    ctaUrl:   'https://shop.simsi.com.br/collections/relaxamento-muscular',
   },
   'pequenas-pausas': {
     name: 'Pequenas Pausas',
@@ -102,6 +106,7 @@ const RITUALS = {
       extended: 'Dica extra: experimente combinar com Desacelerar a Mente no final do expediente para encerrar o modo trabalho com mais clareza.',
     },
     ctaLabel: 'Conhecer produtos para Pequenas Pausas',
+    ctaUrl:   'https://shop.simsi.com.br/collections/pequenas-pausas',
   },
   'despertar': {
     name: 'Despertar',
@@ -114,6 +119,7 @@ const RITUALS = {
       extended: 'Dica extra: adicione Pequenas Pausas ao longo do dia para manter a energia do despertar até o final do expediente.',
     },
     ctaLabel: 'Conhecer produtos para Despertar',
+    ctaUrl:   'https://shop.simsi.com.br/collections/despertar',
   },
 };
 
@@ -389,7 +395,7 @@ function buildResultAndShow() {
       maturity: maturity,
       duration: duration,
     });
-    window.location.href = `${SIMSI_CONFIG.shopifyUrl}?${params}`;
+    window.location.href = `${ritual.ctaUrl}?${params}`;
   };
 
   showScreen('screen-result');

@@ -1,6 +1,3 @@
-# simsi
-This read.me file explains the basic architecture of simsi.com.br
-
 # SIMSI — Quiz de Bem-Estar
 
 Interactive quiz that recommends a personalized wellness ritual and directs users to the SIMSI store.
