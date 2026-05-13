@@ -2,7 +2,7 @@
 // After deploying Code.gs as a Web App, paste the /exec URL below.
 const SIMSI_CONFIG = {
   shopifyUrl:    'https://simsi.com.br',
-  sheetsWebhook: 'https://script.google.com/macros/s/AKfycbzRZTiUnmPmfnQSnH_mYEJPdrFXOxZ5R-oyoqNDveVoxtZ6KB5axZLlcf6O9bYTLuF1Qg/exec',
+  sheetsWebhook: 'https://script.google.com/macros/s/AKfycbwLWHTpnV7SOiNh38lVedjs49WnwRaVPWesLhzmaouss4taBoLpISjbryZbFI3q-JJdpQ/exec',
 };
 
 /* ── Quiz data ─────────────────────────────────────────────── */
