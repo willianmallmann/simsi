@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIMSI — Descubra seu ritual</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── SCREEN 1: Breathing ──────────────────────────────────── -->
+<section id="screen-breathing" class="screen" role="main" aria-label="Exercício de respiração">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" id="skip-breathing">Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="breath-stage" id="breath-stage">
+      <div class="breath-circle breath-circle-1"></div>
+      <div class="breath-circle breath-circle-2"></div>
+      <div class="breath-circle breath-circle-3"></div>
+      <div class="breath-label">
+        <div class="breath-phase" id="breath-phase">inspire</div>
+        <div class="breath-timer" id="breath-timer">1s</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREEN 2: Q1 — Objetivo ──────────────────────────────── -->
+<section id="screen-q1" class="screen" aria-label="Pergunta 1">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" data-skip>Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <p class="quiz-progress">Pergunta 1 de 4</p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:25%"></div></div>
+    <h1 class="quiz-title">O que você está buscando para trazer mais bem-estar à sua rotina?</h1>
+    <p class="quiz-subtitle">Escolha o que faz mais sentido na sua rotina agora.</p>
+    <div class="options-grid" id="q1-options">
+      <button class="option-btn" data-q="q1" data-value="dormir">
+        <span class="option-icon">🌙</span> Dormir melhor
+      </button>
+      <button class="option-btn" data-q="q1" data-value="ansiedade">
+        <span class="option-icon">🧘</span> Reduzir ansiedade e desacelerar
+      </button>
+      <button class="option-btn" data-q="q1" data-value="movimento">
+        <span class="option-icon">🏃</span> Me movimentar mais no dia a dia
+      </button>
+      <button class="option-btn" data-q="q1" data-value="explorar">
+        <span class="option-icon">✨</span> Quero explorar — ainda não sei por onde começar
+      </button>
+      <button class="option-btn redirect" data-q="q1" data-value="redirect">
+        → Quero ir para a página da SIMSI
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREEN 3: Q2 — Sintoma (branched) ───────────────────── -->
+<section id="screen-q2" class="screen" aria-label="Pergunta 2">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" data-skip>Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <p class="quiz-progress">Pergunta 2 de 4</p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:50%"></div></div>
+    <h1 class="quiz-title" id="q2-title">—</h1>
+    <div class="options-grid" id="q2-options"></div>
+  </div>
+</section>
+
+<!-- ── SCREEN 4: Q3 — Maturidade ───────────────────────────── -->
+<section id="screen-q3" class="screen" aria-label="Pergunta 3">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" data-skip>Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <p class="quiz-progress">Pergunta 3 de 4</p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:75%"></div></div>
+    <h1 class="quiz-title">Como está sua rotina de bem-estar hoje?</h1>
+    <p class="quiz-subtitle">Sem julgamento — só pra sugerir o ponto de partida certo pra você.</p>
+    <div class="options-grid" id="q3-options">
+      <button class="option-btn" data-q="q3" data-value="iniciante">
+        Não tenho rotina nenhuma e quero começar
+      </button>
+      <button class="option-btn" data-q="q3" data-value="intermediario">
+        Tenho hábitos soltos, sem método claro
+      </button>
+      <button class="option-btn" data-q="q3" data-value="intermediario">
+        Já faço algumas práticas mas sem ritual estruturado
+      </button>
+      <button class="option-btn" data-q="q3" data-value="avancado">
+        Tenho uma rotina estabelecida e quero refinar
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREEN 5: Q4 — Tempo ─────────────────────────────────── -->
+<section id="screen-q4" class="screen" aria-label="Pergunta 4">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" data-skip>Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <p class="quiz-progress">Pergunta 4 de 4</p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:100%"></div></div>
+    <h1 class="quiz-title">Quanto tempo você consegue dedicar ao ritual por dia?</h1>
+    <p class="quiz-subtitle">Sem culpa — vamos ajustar a prática ao seu tempo real.</p>
+    <div class="options-grid" id="q4-options">
+      <button class="option-btn" data-q="q4" data-value="short">
+        <span class="option-icon">⏱</span> Até 5 minutos
+      </button>
+      <button class="option-btn" data-q="q4" data-value="standard">
+        <span class="option-icon">⏱</span> De 5 a 10 minutos
+      </button>
+      <button class="option-btn" data-q="q4" data-value="extended">
+        <span class="option-icon">⏱</span> Mais que 10 minutos
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREEN 6: Lead Capture ───────────────────────────────── -->
+<section id="screen-lead" class="screen" aria-label="Seus dados">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+    <button class="skip-link" data-skip>Pular personalização →</button>
+  </nav>
+  <div class="screen-body">
+    <form class="lead-form" id="lead-form" novalidate>
+      <h2 class="lead-title">Quase lá! Para onde enviar seu ritual?</h2>
+      <p class="lead-subtitle">Vamos enviar sua trilha personalizada e dicas exclusivas.</p>
+
+      <div class="form-group">
+        <label class="form-label" for="input-name">Nome <span style="opacity:.5">(opcional)</span></label>
+        <input class="form-input" type="text" id="input-name" placeholder="Como posso te chamar?" autocomplete="given-name" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-email">E-mail <span style="opacity:.5">*</span></label>
+        <input class="form-input" type="email" id="input-email" placeholder="seu@email.com" required autocomplete="email" />
+        <span class="form-error" id="email-error" style="color:#c0392b;font-size:12px;display:none">Por favor, insira um e-mail válido.</span>
+      </div>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="input-newsletter" checked />
+        <span class="checkbox-label">Quero receber conteúdos e novidades da SIMSI por e-mail</span>
+      </label>
+
+      <button class="submit-btn" type="submit" id="submit-btn">Ver meu ritual personalizado →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── SCREEN 7: Result ─────────────────────────────────────── -->
+<section id="screen-result" class="screen" aria-label="Seu ritual personalizado">
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="wordmark">SIMSI</span>
+      <span class="tagline">Seu clube de bem-estar mental</span>
+    </div>
+  </nav>
+  <div class="screen-body">
+    <p class="result-eyebrow">Sua trilha personalizada</p>
+    <div class="ritual-card" id="ritual-card">
+      <div class="ritual-card-blob"></div>
+      <div class="ritual-card-blob-2"></div>
+      <h2 class="ritual-name" id="ritual-name">—</h2>
+      <p class="ritual-description" id="ritual-description">—</p>
+      <p class="ritual-tip" id="ritual-tip" style="display:none"></p>
+    </div>
+    <button class="ritual-cta" id="ritual-cta">
+      <span id="ritual-cta-text">Conhecer produtos →</span>
+    </button>
+  </div>
+</section>
+
+<script src="quiz.js"></script>
+</body>
+</html>
