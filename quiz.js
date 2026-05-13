@@ -1,7 +1,7 @@
 /* ── Config ────────────────────────────────────────────────── */
 // After deploying Code.gs as a Web App, paste the /exec URL below.
 const SIMSI_CONFIG = {
-  shopifyUrl:    'https://simsi.com.br',
+  shopifyUrl:    'https://shop.simsi.com.br',
   sheetsWebhook: 'https://script.google.com/macros/s/AKfycbwLWHTpnV7SOiNh38lVedjs49WnwRaVPWesLhzmaouss4taBoLpISjbryZbFI3q-JJdpQ/exec',
 };
 
