@@ -64,18 +64,10 @@ body {
   flex-direction: column;
   gap: 2px;
 }
-.nav-logo .wordmark {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: 0.05em;
-  line-height: 1;
-}
-.nav-logo .tagline {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+.nav-logo .logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 .skip-link {
   font-size: 13px;
