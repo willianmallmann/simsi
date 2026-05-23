@@ -38,37 +38,37 @@ const RITUALS = {
   'reducao-estimulo': {
     name: 'Ritual de Redução de Estímulos',
     description: 'A gente vive imerso em estímulos. O cérebro humano, que evoluiu para responder aos ciclos naturais de luz e escuro, hoje recebe um fluxo constante de luz azul, notificações sonoras, ar condicionado, telas, uma sobrecarga que o sistema nervoso simplesmente não foi desenhado para processar 24 horas por dia. O Ritual de Redução de Estímulos nasce para devolver ao corpo o ambiente sensorial que ele reconhece como seguro, aquele em que o sistema parassimpático pode finalmente assumir o comando.',
-    ctaLabel: 'Conhecer o Ritual de Redução de Estímulos',
+    ctaLabel: 'Conheça o ritual de Redução de Estímulos',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-de-reducao-de-estimulo',
   },
   'acalmar-mente': {
     name: 'Ritual para Acalmar a Mente',
     description: 'A ruminação é o ato repetitivo e passivo de focar nas emoções negativas e em suas causas, sem chegar a uma resolução. Diferente do pensamento analítico, que busca uma solução, a ruminação roda em círculos. E quanto mais roda, mais ativa as áreas do cérebro associadas ao estresse, à tristeza e à ansiedade. A boa notícia é que o cérebro responde bem a interrupções específicas. Os rituais para acalmar a mente reúnem três práticas que o sustentam.',
-    ctaLabel: 'Conhecer o Ritual para Acalmar a Mente',
+    ctaLabel: 'Conheça o ritual para Acalmar a Mente',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-para-acalmar-a-mente',
   },
   'relaxamento-noturno': {
     name: 'Ritual de Relaxamento Noturno',
     description: 'O excesso de informação que consumimos ao longo do dia, somado às telas, à luz artificial e ao volume de decisões pequenas, mantém o sistema nervoso em estado de alerta muito além do necessário. O resultado é o que muita gente conhece de cor: o corpo cansado, mas a cabeça que não desliga. O sono que demora a chegar e que, quando chega, não conseguimos descansar. O Ritual de Relaxamento Noturno é a sequência de pequenos gestos que ensina o corpo a fazer essa transição, sinalizando fisicamente ao corpo que é hora de pausar e desconectar a mente.',
-    ctaLabel: 'Conhecer o Ritual de Relaxamento Noturno',
+    ctaLabel: 'Conheça o ritual de Relaxamento Noturno',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-de-relaxamento-noturno',
   },
   'pausas-ativas': {
     name: 'Ritual de Pausas Ativas',
     description: 'A ansiedade raramente aparece quando estamos profundamente envolvidos em uma atividade que ocupa as mãos. Costurar, modelar, escrever à mão, regar uma planta, fazer um pão. Quando o corpo trabalha em ritmo próprio e os sentidos estão ocupados, a mente que estava em loop encontra naturalmente um lugar para descansar. Quando passamos a viver predominantemente em ambientes em que o esforço é cognitivo e o resultado é abstrato (planilhas, e-mails, telas), esse circuito atrofia. E a ansiedade cresce. O Ritual de Pausas Ativas nasce para reativar esse caminho.',
-    ctaLabel: 'Conhecer o Ritual de Pausas Ativas',
+    ctaLabel: 'Conheça o ritual de Pausas Ativas',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-de-pausas-ativas',
   },
   'relaxamento': {
     name: 'Ritual de Relaxamento',
     description: 'A maior parte das pessoas trata o descanso como recompensa, algo que se conquista depois de muito esforço. A neurociência mostra o contrário. O descanso não é o que vem depois do esforço, é o que torna o esforço sustentável. Sem ele, o sistema nervoso vai acumulando uma carga chamada de allostatic load, a sobrecarga do estresse que o corpo não conseguiu processar. A boa notícia é que o sistema nervoso responde rápido a sinais de descanso. O Ritual de Relaxamento nasce para permitir essa manutenção diária.',
-    ctaLabel: 'Conhecer o Ritual de Relaxamento',
+    ctaLabel: 'Conheça o ritual de Relaxamento',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-de-relaxamento',
   },
   'pequenas-pausas': {
     name: 'Ritual de Pequenas Pausas',
     description: 'O cérebro humano não foi desenhado para esforço contínuo. Ele opera em ciclos de noventa a cento e vinte minutos. A cada ciclo, há uma queda natural de atenção e energia que pede pausa. Quando essa queda é ignorada, o cortisol sobe, a ansiedade se acumula, e a produtividade cai. A maior parte da ansiedade silenciosa do dia a dia mora exatamente aqui. A gente vai empilhando horas de foco contínuo até que o sistema nervoso entra em estado de alerta sem motivo aparente. O Ritual de Pequenas Pausas nasce para devolver esse ritmo ao corpo.',
-    ctaLabel: 'Conhecer o Ritual de Pequenas Pausas',
+    ctaLabel: 'Conheça o ritual de Pequenas Pausas',
     ctaUrl:   'https://shop.simsi.com.br/pages/ritual-de-pequenas-pausas',
   },
 };
