@@ -65,7 +65,7 @@ body {
   gap: 2px;
 }
 .nav-logo .logo-img {
-  height: 60px;
+  height: 72px;
   width: auto;
   display: block;
 }
@@ -106,33 +106,108 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
+  /* no overflow:hidden — images bleed out naturally */
 }
-.breath-circle {
+
+/* ── Image layers ──────────────────────────────────────────── */
+.breath-layer {
   position: absolute;
-  border-radius: 50%;
+  inset: -45%;   /* large enough that no edge is clipped at any rotation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform-origin: center;
+  will-change: transform, opacity;
 }
-.breath-circle-1 {
-  width: 494px;
-  height: 494px;
-  background: radial-gradient(ellipse at 40% 35%, #B8C4A8 0%, #A8B898 30%, #8A9A78 60%, transparent 80%),
-              radial-gradient(ellipse at 70% 65%, #C8D4B8 0%, #B0C0A0 40%, transparent 70%);
-  opacity: 0.35;
+.breath-layer img {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: contain;
+  will-change: transform;
 }
-.breath-circle-2 {
-  width: 371px;
-  height: 371px;
-  background: radial-gradient(ellipse at 35% 30%, #C8D4A8 0%, #B8C8A0 35%, #A0B088 60%, transparent 80%);
-  opacity: 0.5;
+
+/* ── Continuous rotation — runs independently on the img ───── */
+@keyframes rotateCW  { to { transform: rotate( 360deg); } }
+@keyframes rotateCCW { to { transform: rotate(-360deg); } }
+
+.breath-layer-1 img { animation: rotateCW   28s linear infinite; }
+.breath-layer-2 img { animation: rotateCCW  38s linear infinite; }
+.breath-layer-3 img { animation: rotateCW   22s linear infinite; }
+.breath-layer-4 img { animation: rotateCCW  48s linear infinite; }
+.breath-layer-5 img { animation: rotateCW   34s linear infinite; }
+
+/* ── Per-layer breathing keyframes ────────────────────────────
+   scale + rotation offset + opacity all vary together.
+   Layers 1-2 (soltos-21/22): max opacity 0.38
+   Layers 3-5 (soltos-11 ×3): max opacity 0.14           */
+
+@keyframes breatheIn-1 {
+  from { transform: scale(0.35) rotate(-18deg); opacity: 0.10; }
+  to   { transform: scale(1)    rotate(0deg);   opacity: 0.38; }
 }
-.breath-circle-3 {
-  width: 265px;
-  height: 265px;
-  background: radial-gradient(ellipse at 40% 35%, #D8E4B8 0%, #C8D8A8 40%, #B0C090 70%, transparent 90%);
-  opacity: 0.7;
+@keyframes breatheHold-1 {
+  from, to { transform: scale(1) rotate(0deg); opacity: 0.38; }
 }
+
+@keyframes breatheIn-2 {
+  from { transform: scale(0.35) rotate(22deg);  opacity: 0.10; }
+  to   { transform: scale(1)    rotate(0deg);   opacity: 0.38; }
+}
+@keyframes breatheHold-2 {
+  from, to { transform: scale(1) rotate(0deg); opacity: 0.38; }
+}
+
+@keyframes breatheIn-3 {
+  from { transform: scale(0.35) rotate(-12deg); opacity: 0.04; }
+  to   { transform: scale(1)    rotate(0deg);   opacity: 0.14; }
+}
+@keyframes breatheHold-3 {
+  from, to { transform: scale(1) rotate(0deg); opacity: 0.14; }
+}
+
+@keyframes breatheIn-4 {
+  from { transform: scale(0.35) rotate(30deg);  opacity: 0.04; }
+  to   { transform: scale(1)    rotate(0deg);   opacity: 0.14; }
+}
+@keyframes breatheHold-4 {
+  from, to { transform: scale(1) rotate(0deg); opacity: 0.14; }
+}
+
+@keyframes breatheIn-5 {
+  from { transform: scale(0.35) rotate(-25deg); opacity: 0.04; }
+  to   { transform: scale(1)    rotate(0deg);   opacity: 0.14; }
+}
+@keyframes breatheHold-5 {
+  from, to { transform: scale(1) rotate(0deg); opacity: 0.14; }
+}
+
+/* ── Apply animations per phase ────────────────────────────── */
+/* breatheOut reuses the same keyframe played in reverse */
+
+.breath-anim-in   .breath-layer-1 { animation: breatheIn-1   5s ease-in-out         forwards; }
+.breath-anim-hold .breath-layer-1 { animation: breatheHold-1 2s ease-in-out         forwards; }
+.breath-anim-out  .breath-layer-1 { animation: breatheIn-1   8s ease-in-out reverse forwards; }
+
+.breath-anim-in   .breath-layer-2 { animation: breatheIn-2   5s ease-in-out         forwards; animation-delay: 0.12s; }
+.breath-anim-hold .breath-layer-2 { animation: breatheHold-2 2s ease-in-out         forwards; }
+.breath-anim-out  .breath-layer-2 { animation: breatheIn-2   8s ease-in-out reverse forwards; animation-delay: 0.12s; }
+
+.breath-anim-in   .breath-layer-3 { animation: breatheIn-3   5s ease-in-out         forwards; animation-delay: 0.24s; }
+.breath-anim-hold .breath-layer-3 { animation: breatheHold-3 2s ease-in-out         forwards; }
+.breath-anim-out  .breath-layer-3 { animation: breatheIn-3   8s ease-in-out reverse forwards; animation-delay: 0.24s; }
+
+.breath-anim-in   .breath-layer-4 { animation: breatheIn-4   5s ease-in-out         forwards; animation-delay: 0.36s; }
+.breath-anim-hold .breath-layer-4 { animation: breatheHold-4 2s ease-in-out         forwards; }
+.breath-anim-out  .breath-layer-4 { animation: breatheIn-4   8s ease-in-out reverse forwards; animation-delay: 0.36s; }
+
+.breath-anim-in   .breath-layer-5 { animation: breatheIn-5   5s ease-in-out         forwards; animation-delay: 0.48s; }
+.breath-anim-hold .breath-layer-5 { animation: breatheHold-5 2s ease-in-out         forwards; }
+.breath-anim-out  .breath-layer-5 { animation: breatheIn-5   8s ease-in-out reverse forwards; animation-delay: 0.48s; }
+
 .breath-label {
   position: relative;
   z-index: 10;
@@ -152,51 +227,6 @@ body {
   margin-top: 4px;
   letter-spacing: 0.05em;
 }
-
-/* Background blobs on breathing screen */
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-}
-.blob-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, #C8D4A8 0%, #B0C090 40%, transparent 70%);
-  top: -200px; left: -200px;
-  opacity: 0.5;
-}
-.blob-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, #B8D4C8 0%, #9EC4B0 40%, transparent 70%);
-  bottom: -150px; right: -150px;
-  opacity: 0.4;
-}
-
-/* Breathing animation states */
-@keyframes breatheIn {
-  from { transform: scale(0.35); }
-  to   { transform: scale(1); }
-}
-@keyframes breatheHold {
-  from, to { transform: scale(1); }
-}
-@keyframes breatheOut {
-  from { transform: scale(1); }
-  to   { transform: scale(0.35); }
-}
-
-.breath-anim-in  .breath-circle { animation: breatheIn  5s ease-in-out forwards; }
-.breath-anim-hold .breath-circle { animation: breatheHold 2s ease-in-out forwards; }
-.breath-anim-out  .breath-circle { animation: breatheOut  8s ease-in-out forwards; }
-
-.breath-anim-in .breath-circle-1  { animation-delay: 0s; }
-.breath-anim-in .breath-circle-2  { animation-delay: 0.1s; }
-.breath-anim-in .breath-circle-3  { animation-delay: 0.2s; }
-.breath-anim-out .breath-circle-1 { animation-delay: 0s; }
-.breath-anim-out .breath-circle-2 { animation-delay: 0.1s; }
-.breath-anim-out .breath-circle-3 { animation-delay: 0.2s; }
 
 /* ── Quiz screens ──────────────────────────────────────────── */
 .quiz-progress {
@@ -478,10 +508,7 @@ body {
 @media (max-width: 600px) {
   .nav { padding: 20px 20px; }
   .screen-body { padding: 32px 20px; }
-  .breath-stage { width: 300px; height: 300px; }
-  .breath-circle-1 { width: 296px; height: 296px; }
-  .breath-circle-2 { width: 222px; height: 222px; }
-  .breath-circle-3 { width: 159px; height: 159px; }
+  .breath-stage { width: 260px; height: 260px; }
   .ritual-card { padding: 32px 28px; }
   .nav-logo .wordmark { font-size: 22px; }
 }
