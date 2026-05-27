@@ -131,8 +131,8 @@ const breathTimer  = document.getElementById('breath-timer');
 
 const BREATH_SEQUENCE = [
   { phase: 'inspire', label: 'inspire', duration: 5000, animClass: 'breath-anim-in' },
-  { phase: 'hold',    label: 'segure',  duration: 2000, animClass: 'breath-anim-hold' },
-  { phase: 'expire',  label: 'expire',  duration: 8000, animClass: 'breath-anim-out' },
+  { phase: 'hold',    label: 'segure',  duration: 5000, animClass: 'breath-anim-hold' },
+  { phase: 'expire',  label: 'solte',   duration: 5000, animClass: 'breath-anim-out' },
 ];
 
 let breathTimeout = null;

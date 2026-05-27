@@ -108,30 +108,108 @@ body {
   justify-content: center;
   width: 500px;
   height: 500px;
+  cursor: pointer;
 }
-.breath-circle {
+
+/* Layer wrappers handle the continuous drift rotation. */
+.petal {
   position: absolute;
-  border-radius: 50%;
-  transform-origin: center;
-}
-.breath-circle-1 {
-  width: 494px;
-  height: 494px;
-  background: radial-gradient(ellipse at 40% 35%, #B8C4A8 0%, #A8B898 30%, #8A9A78 60%, transparent 80%),
-              radial-gradient(ellipse at 70% 65%, #C8D4B8 0%, #B0C0A0 40%, transparent 70%);
-  opacity: 0.35;
-}
-.breath-circle-2 {
-  width: 371px;
-  height: 371px;
-  background: radial-gradient(ellipse at 35% 30%, #C8D4A8 0%, #B8C8A0 35%, #A0B088 60%, transparent 80%);
-  opacity: 0.5;
-}
-.breath-circle-3 {
-  width: 265px;
-  height: 265px;
-  background: radial-gradient(ellipse at 40% 35%, #D8E4B8 0%, #C8D8A8 40%, #B0C090 70%, transparent 90%);
+  top: 50%;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  transform: translate(-50%, -50%);
+  animation: drift var(--drift-duration) linear infinite;
+  animation-direction: var(--drift-direction, normal);
+  will-change: transform;
+  /* Global dim so the centered phase label stays legible. */
   opacity: 0.7;
+}
+.petal-base {
+  width: 100%;
+  height: 100%;
+  transform: rotate(var(--base-rot));
+}
+.petal-img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: scale(1);
+  opacity: var(--opacity-max);
+  will-change: transform, opacity;
+}
+
+/* Per-layer parameters (sizes are % of the 500px stage). */
+.petal-1 {
+  --size: 102%;
+  --base-rot: 50.69deg;
+  --drift-duration: 60s;
+  --drift-direction: normal;
+}
+.petal-1 .petal-img {
+  background-image: url('breathing-petal-a.png');
+  --scale-min: 0.40;
+  --opacity-min: 0.50;
+  --opacity-max: 0.68;
+  --ease: cubic-bezier(.45,.05,.55,.95);
+}
+
+.petal-2 {
+  --size: 101%;
+  --base-rot: -144.43deg;
+  --drift-duration: 75s;
+  --drift-direction: reverse;
+}
+.petal-2 .petal-img {
+  background-image: url('breathing-petal-b.png');
+  --scale-min: 0.45;
+  --opacity-min: 0.50;
+  --opacity-max: 0.72;
+  --ease: cubic-bezier(.65,0,.35,1);
+}
+
+.petal-3 {
+  --size: 94%;
+  --base-rot: 158.88deg;
+  --drift-duration: 45s;
+  --drift-direction: normal;
+}
+.petal-3 .petal-img {
+  background-image: url('breathing-petal-c.png');
+  --scale-min: 0.30;
+  --opacity-min: 0.20;
+  --opacity-max: 0.55;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+.petal-4 {
+  --size: 79%;
+  --base-rot: -5.88deg;
+  --drift-duration: 90s;
+  --drift-direction: reverse;
+}
+.petal-4 .petal-img {
+  background-image: url('breathing-petal-c.png');
+  --scale-min: 0.50;
+  --opacity-min: 0.20;
+  --opacity-max: 0.48;
+  --ease: cubic-bezier(.55,.05,.45,.95);
+}
+
+.petal-5 {
+  --size: 72%;
+  --base-rot: 90deg;
+  --drift-duration: 30s;
+  --drift-direction: normal;
+}
+.petal-5 .petal-img {
+  background-image: url('breathing-petal-c.png');
+  --scale-min: 0.55;
+  --opacity-min: 0.25;
+  --opacity-max: 0.62;
+  --ease: cubic-bezier(.3,.1,.3,1);
 }
 
 /* Background blobs on breathing screen */
@@ -155,28 +233,22 @@ body {
   opacity: 0.4;
 }
 
-@keyframes breatheIn {
-  from { transform: scale(0.35); }
-  to   { transform: scale(1); }
+@keyframes drift {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
-@keyframes breatheHold {
-  from, to { transform: scale(1); }
+@keyframes breatheIn {
+  from { transform: scale(var(--scale-min)); opacity: var(--opacity-min); }
+  to   { transform: scale(1);                opacity: var(--opacity-max); }
 }
 @keyframes breatheOut {
-  from { transform: scale(1); }
-  to   { transform: scale(0.35); }
+  from { transform: scale(1);                opacity: var(--opacity-max); }
+  to   { transform: scale(var(--scale-min)); opacity: var(--opacity-min); }
 }
 
-.breath-anim-in   .breath-circle { animation: breatheIn  5s ease-in-out forwards; }
-.breath-anim-hold .breath-circle { animation: breatheHold 2s ease-in-out forwards; }
-.breath-anim-out  .breath-circle { animation: breatheOut  8s ease-in-out forwards; }
-
-.breath-anim-in  .breath-circle-1 { animation-delay: 0s; }
-.breath-anim-in  .breath-circle-2 { animation-delay: 0.1s; }
-.breath-anim-in  .breath-circle-3 { animation-delay: 0.2s; }
-.breath-anim-out .breath-circle-1 { animation-delay: 0s; }
-.breath-anim-out .breath-circle-2 { animation-delay: 0.1s; }
-.breath-anim-out .breath-circle-3 { animation-delay: 0.2s; }
+.breath-anim-in  .petal-img { animation: breatheIn  5s var(--ease) both; }
+.breath-anim-out .petal-img { animation: breatheOut 5s var(--ease) both; }
+/* breath-anim-hold: no animation, default style (scale 1 / opacity-max) holds. */
 
 .breath-label {
   position: relative;
